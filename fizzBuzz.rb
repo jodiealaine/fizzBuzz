@@ -16,17 +16,21 @@ class Fizzbuzz
     (i%5 == 0)
   end
 
+  def value_for(i)
+    if fizz_buzz(i)
+      "FizzBuzz"
+    elsif fizz(i)
+      "fizz"
+    elsif buzz(i) 
+      "buzz"
+    else
+      i
+    end    
+  end
+
   def print
     for i in 1..100
-      if fizz_buzz(i)
-        puts "FizzBuzz"
-      elsif fizz(i)
-        puts "fizz"
-      elsif buzz(i) 
-        puts "buzz"
-      else
-        puts i
-      end
+      puts value_for(i)
     end
   end
 end
