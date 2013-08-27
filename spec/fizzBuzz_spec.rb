@@ -9,15 +9,26 @@ describe Fizzbuzz do
   describe "#fizz_buzz" do
 	  before do
 	  	@fizz_buzz_true = @fizzbuzz.fizz_buzz(15)
-      @fizz_buzz_false = @fizzbuzz.fizz_buzz(5)
+      @fizz_buzz_five = @fizzbuzz.fizz_buzz(5)
+      @fizz_buzz_three = @fizzbuzz.fizz_buzz(6)
 	  end
 
-  	it "should return true for a number that is a multiple of both 5 and 3" do		
-  		@fizz_buzz_true.should == true
-  	end
+    context "with a multiple of both 3 and 5" do 
+  	  it "should return true" do		
+  		  @fizz_buzz_true.should == true
+  	  end
+     end
+    
+    context "with only a only a multiple of 5" do 
+      it "should return false" do   
+        @fizz_buzz_five.should == false
+      end
+    end
 
-    it "should return false for a number that is only a multiple of 5" do   
-      @fizz_buzz_false.should == false
+    context "with only a multiple of 3" do 
+      it "should return false" do 
+        @fizz_buzz_three.should == false
+      end
     end
 
 	end
@@ -28,12 +39,16 @@ describe Fizzbuzz do
       @fizz_false = @fizzbuzz.fizz(8)
     end
 
-    it "should return true for a number that is a multiple of 3" do
-      @fizz_true.should == true
+    context "with a number that is a multiple of 3" do 
+      it "should return true" do
+        @fizz_true.should == true
+      end
     end
 
-    it "should return false for a number that is not a multiple of 3" do
-      @fizz_false.should == false
+    context "without a number that is a multiple of 3" do 
+      it "should return false" do
+        @fizz_false.should == false
+      end
     end
   end
 
@@ -43,12 +58,16 @@ describe Fizzbuzz do
       @buzz_false = @fizzbuzz.buzz(9)
     end
 
-    it "should return true for a number that is a multiple of 5" do
-      @buzz_true.should == true
+    context "with a number that is a mutilple of 5" do 
+      it "should return true" do
+        @buzz_true.should == true
+      end
     end
 
-    it "should return false for a number that is not a multiple of 5" do
-      @buzz_false.should == false
+    context "without a number that is a multiple of 5" do 
+      it "should return false" do
+        @buzz_false.should == false
+      end
     end
   end
 
@@ -60,20 +79,28 @@ describe Fizzbuzz do
       @number = @fizzbuzz.value_for(2)
     end
 
-    it "should return 'buzz' for a multiple of 5" do
-      @buzz.should == "buzz"
+    context "with a multiple of 5" do 
+      it "should return 'buzz'" do
+        @buzz.should == "buzz"
+      end
     end
 
-    it "should return 'fizz' for a multiple of 3" do 
-      @fizz.should == 'fizz'
+    context "with a multiple of 3" do 
+      it "should return 'fizz'" do 
+        @fizz.should == 'fizz'
+      end
     end
 
-    it "should return 'FizzBuzz' for a multiple of both 3 and 5" do
-      @fizz_buzz.should == 'FizzBuzz'
+    context "with a multiple of both 3 and 5" do 
+      it "should return 'FizzBuzz'" do
+        @fizz_buzz.should == 'FizzBuzz'
+      end
     end
 
-    it "should return the number if it is not a multiple of 3 and 5" do
-      @number.should == 2
+    context "without a multiple of 3 and/or 5" do 
+      it "should return the number" do
+        @number.should == 2
+      end
     end
   end
 end
